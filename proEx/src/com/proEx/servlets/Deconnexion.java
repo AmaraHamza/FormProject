@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 public class Deconnexion extends HttpServlet {
     private static final long  serialVersionUID = 1L;
 
-    public static final String URL_REDIRECTION  = "http://www.google.com";
+    public static final String URL_REDIRECTION  = "/PublicPage.jsp";
 
     public Deconnexion() {
         super();
@@ -29,8 +29,8 @@ public class Deconnexion extends HttpServlet {
         HttpSession session = request.getSession();
         session.invalidate();
 
-        /* Redirection vers le Site du Zéro ! */
-        response.sendRedirect( URL_REDIRECTION );
+        /* Redirection vers la page publique ! */
+        response.sendRedirect( request.getContextPath() + URL_REDIRECTION );
     }
 
     /**
